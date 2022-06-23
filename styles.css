@@ -1,0 +1,53 @@
+.horizontal-list li {
+    display: inline-block;
+    margin: 0px 8px 8px 0px;  
+    font-weight: 100;
+    font-size: 0.9rem;
+}
+.horizontal-list  {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+.text-center {
+ text-align: center;
+}
+.horizontal-list li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    transition: color 2s, border-bottom 4s;
+}
+.nav-menu li a:hover{
+    /* background-color: lightgrey; */
+   font-weight: 600;
+    color:blue;
+    /* color: lightgrey; */
+    border-bottom: 0px solid rgb(213, 205, 205);
+
+}
+.body-header{
+    display: flex;
+    flex-direction: column;
+    background-image: url('pexels-jessica-lewis-creative-583848.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body{
+    background-color: black;
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
+}
+.social-icons li a{
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 50%;
+    /* background-color: aqua; */
+}
+.social-icons li a i:hover {
+    box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
+}
