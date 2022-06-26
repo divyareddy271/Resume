@@ -1,53 +1,296 @@
-.horizontal-list li {
-    display: inline-block;
-    margin: 0px 8px 8px 0px;  
-    font-weight: 100;
-    font-size: 0.9rem;
+body {
+  background-color: black;
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 30px;
+  color: white;
 }
-.horizontal-list  {
-    list-style: none;
-    padding-left: 0px;
-    margin: 0px;
-}
-.text-center {
- text-align: center;
-}
-.horizontal-list li a {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    transition: color 2s, border-bottom 4s;
-}
-.nav-menu li a:hover{
-    /* background-color: lightgrey; */
-   font-weight: 600;
-    color:blue;
-    /* color: lightgrey; */
-    border-bottom: 0px solid rgb(213, 205, 205);
-
-}
-.body-header{
-    display: flex;
+.body-header {
+  /* display: flex;
+    padding-top: 1.2rem;
+    height: 65vh;
+    
     flex-direction: column;
     background-image: url('pexels-jessica-lewis-creative-583848.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-attachment:fixed */
+  height: 65vh;
+  opacity: 0.8;
+  background-image: url("lappy.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 1.2rem;
 }
-body{
-    background-color: black;
-    margin: 0px;
-    font-family: sans-serif;
-    font-size: 30px;
-    color: white;
+.horizontal-list li {
+  display: inline-block;
+  margin: 0px 8px 8px 0px;
+  font-weight: 100;
+  font-size: 0.9rem;
 }
-.social-icons li a{
-    color: rgb(255, 255, 255);
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 50%;
-    /* background-color: aqua; */
+.horizontal-list {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0px;
+}
+.text-center {
+  text-align: center;
+}
+.horizontal-list li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  transition: color 2s, border-bottom 4s;
+}
+.nav-menu li a:hover {
+  /* background-color: lightgrey; */
+  font-weight: 600;
+  color: blue;
+  /* color: lightgrey; */
+  border-bottom: 0px solid rgb(213, 205, 205);
+}
+#social-details {
+  margin-top: 20vh;
+}
+.my-name {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.social-icons li a {
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 50%;
+  /* background-color: aqua; */
 }
 .social-icons li a i:hover {
-    box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
+  box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
+}
+/* Section */
+section {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  /* margin: 10px; */
+  flex-direction: column;
+  align-items: center;
+}
+section:nth-child(2n) {
+  background-color: grey;
+}
+section:nth-child(2n + 1) {
+  background-color: rgb(6, 1, 0);
+}
+.section-heading {
+  width: auto;
+  padding: 20px 10px 10px;
+  font-weight: 400;
+}
+.section-heading span {
+  font-size: 40px;
+  color: #2857a4;
+  display: inline-block;
+  padding-top: 10px;
+  margin-right: 0.5rem;
+}
+
+/* about */
+#about {
+  height: auto;
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+#my-img {
+  height: 12rem;
+  width: 12rem;
+  margin: auto;
+  margin-top: -17vh;
+}
+#my-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  z-index: 1;
+  border: 3px solid white;
+  box-shadow: 1px 1px 10px 2px rgba(230, 196, 196, 0.3);
+}
+main {
+  /* width: 90%; */
+  margin: auto;
+}
+#about-me p {
+  padding: 10px;
+  font-size: 1.1rem;
+  text-align: justify;
+  width: 80%;
+  color: gray;
+  line-height: 28px;
+  margin: auto;
+}
+
+/* skills */
+#skills{
+  height: auto;
+}
+.skills-list {
+  display: flex;
+  
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-evenly;
+}
+.skills-bar {
+  width: 11rem;
+  height: 2.2rem;
+  background-color: lightgrey;
+  box-sizing: border-box;
+  margin: 25px;
+  overflow: hidden;
+  border-radius: 100px;
+}
+.Skill-Name {
+  font-size: 15px;
+  color: black;
+  margin-left: 1px;
+}
+.progress-bar {
+  height: 2.2rem;
+  background-color: aquamarine;
+  border-radius: 20px 0px 0px 20px;
+  box-shadow: 1px 1px 5px 2px #989882;
+}
+.Skill-Name {
+  font-size: 1.2rem;
+  padding-top: 6px;
+  box-sizing: border-box;
+  padding-left: 6px;
+}
+
+.wd-10 {
+  width: 10%;
+}
+.wd-20 {
+  width: 20%;
+}
+.wd-30 {
+  width: 30%;
+}
+.wd-40 {
+  width: 40%;
+}
+.wd-50 {
+  width: 50%;
+}
+.wd-60 {
+  width: 60%;
+}
+.wd-70 {
+  width: 70%;
+}
+.wd-80 {
+  width: 80%;
+}
+.wd-90 {
+  width: 90%;
+}
+.wd-100 {
+  width: 100%;
+}
+.clr-yellow {
+  background-color: rgb(196, 182, 30);
+}
+.clr-blue {
+  background-color: blue;
+}
+.clr-cyan {
+  background-color: cyan;
+}
+.clr-green {
+  background-color: rgb(53, 237, 7);
+}
+.clr-pink {
+  background-color: pink;
+}
+.clr-purple {
+  background-color: purple;
+}
+.clr-orange {
+  background-color: orange;
+}
+hr {
+  height:700px !important;
+  width: 0px;
+  margin-top: -420px;
+}
+#Work-experience{
+    height: auto !important;
+    width: 100%;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+#Work-experience:nth-child(even){
+    align-self: flex-end;
+    justify-content: flex-end;
+    background-color: aqua;
+}
+
+.work-experience-division {
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+   
+   
+}
+.work-experience-division-div:nth-child(even){
+    margin-left: 0px;
+    align-self: flex-end;
+    background-color: blue;
+}
+.job-company-profile{
+ display: flex;
+ flex-direction: column;
+ right: 0px;
+ padding:10px;
+ flex-wrap: wrap;
+
+}
+.job-company-profile span{
+    text-align: right;
+    margin: 0px;
+ 
+    font-size: 20px;
+}
+.job-company-profile-role{
+    font-weight: 600;
+    color: orangered;
+}
+.job-company-profile-company{
+    font-weight: 400;
+    color: aqua;
+    line-height: 3rem;
+}
+.job-company-profile-joining {
+    font-size: 13px ! important;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: rgb(98, 111, 111);
+}
+.job-description {
+ margin-top: 10px;
+ font-size: 15px;
+ padding: 7px;
+ text-align: justify;
 }
