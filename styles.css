@@ -1,3 +1,7 @@
+
+
+
+
 body {
   background-color: black;
   margin: 0px;
@@ -75,7 +79,7 @@ body {
 /* Section */
 section {
   width: 100%;
-  height: 500px;
+  /* height: 500px; */
   display: flex;
   /* margin: 10px; */
   flex-direction: column;
@@ -99,7 +103,9 @@ section:nth-child(2n + 1) {
   padding-top: 10px;
   margin-right: 0.5rem;
 }
-
+section:target{
+  background-color: cyan !important;
+}
 /* about */
 #about {
   height: auto;
@@ -228,36 +234,89 @@ main {
 .clr-orange {
   background-color: orange;
 }
-hr {
-  height:700px !important;
+.hr {
+  height:inherit !important;
   width: 0px;
+  border: 1px solid;
   margin-top: -420px;
 }
 #Work-experience{
-    height: auto !important;
+    height: auto;
     width: 100%;
-    align-self: flex-end;
-    justify-content: flex-end;
+    margin-right: 0%;
+    position: relative;
+    background-color: #e9e9cb !important;
+    color: black;
 }
 #Work-experience:nth-child(even){
-    align-self: flex-end;
-    justify-content: flex-end;
+   
     background-color: aqua;
 }
 
-.work-experience-division {
-    width:40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-   
-   
-   
+.timeline{
+    width:85%;
+    position: relative;
+    margin-bottom:10px;
+
+    
 }
-.work-experience-division-div:nth-child(even){
-    margin-left: 0px;
-    align-self: flex-end;
-    background-color: blue;
+
+.timeline-box {
+  width: 40%;
+  position: relative;
+  min-height: 50px;
+  left: 5%;
+}
+.timeline-box:nth-child(even){
+  left:53%;
+  
+}
+.timeline-box:nth-child(even)::before{
+  content: "";
+  background-color: rgb(138, 133, 133);
+  border-radius: 50%;
+  height: 0.5rem;
+  width: 0.5rem;
+  position: absolute;
+  left:-10.5%;
+  top:20%;
+  z-index: 1;
+  
+}
+.timeline-box:nth-child(odd)::after{
+  content:'';
+  color: #403066;
+	position:absolute;
+    top:30%;
+	right:-12.3%;
+	width:0.5rem;
+	height:0.5rem;
+	z-index:1;
+	border-radius:50%;
+	background-color:rgb(138, 133, 133);
+}
+.timeline-divider{
+  height: 80%;
+  position: absolute;
+  left:49%;
+  top:6%;
+	width:0%;
+	padding:0px;
+  border-left: 3px dotted blue;
+}
+#timeline-traveller{ 
+  position: sticky;
+	top:29%;
+	z-index: 2;
+	transform:rotate(90deg);
+  margin-left: -25px;
+
+  
+	
+}
+#timeline-traveller i{
+	margin-top:-20px;
+ 
 }
 .job-company-profile{
  display: flex;
@@ -279,7 +338,7 @@ hr {
 }
 .job-company-profile-company{
     font-weight: 400;
-    color: aqua;
+    color: rgb(177, 91, 16);
     line-height: 3rem;
 }
 .job-company-profile-joining {
@@ -293,4 +352,90 @@ hr {
  font-size: 15px;
  padding: 7px;
  text-align: justify;
+}
+
+/* Protfolio */
+.Protfolio-conatiner{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 50px;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+}
+.Protfolio-conatiner-elements{
+    max-width: 300px;
+    overflow: hidden;
+    margin: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.Protfolio-conatiner-elements img {
+  height:100%;
+  width: 100%;
+}
+#portfolio{
+  height: auto;
+  width: 100%;
+}
+.protfolio-details {
+  transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: transparent;
+    text-align: center;
+    padding: 10px;
+}
+.Protfolio-conatiner-elements:hover {
+  box-shadow: 0 0 20px #8d9295;
+  
+
+}
+
+.Protfolio-conatiner-elements:hover .protfolio-details {
+  background-color: #80808078;
+  color: white;
+}
+#portfolio{
+  background-color: white;
+}
+#contact{
+  /* background-image: linear-gradient(to bottom left,rgb(8, 8, 235) 80%, rgb(163, 70, 163) ); */
+  background-image:linear-gradient(to bottom left ,#403066,#2857a4);
+  color:white;
+  height: 700px;
+  
+}
+@media screen and (max-width:600px)
+{ 
+.timeline-box{
+  left:12% !important;
+  width:90% ;
+  
+}
+.timeline-divider{
+  left:5% ;
+  top:4%;
+}
+
+.timeline-box::before{
+  content: "";
+  background-color: rgb(113, 111, 111);
+  border-radius: 50%;
+  height: 0.5rem;
+  width: 0.5rem;
+  position: absolute;
+  left:-8.3% !important;
+  top:20%;
+  z-index: 1;
+  
+}
+.timeline-box::after{
+  left:-12.%;
+  
+}
 }
