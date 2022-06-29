@@ -22,7 +22,7 @@ body {
     background-attachment:fixed */
   height: 65vh;
   opacity: 0.8;
-  background-image: url("lappy.webp");
+  background-image: url("Img/lappy.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -78,6 +78,7 @@ body {
 }
 /* Section */
 section {
+  transition: width 4s;
   width: 100%;
   /* height: 500px; */
   display: flex;
@@ -145,9 +146,9 @@ main {
 #skills{
   height: auto;
 }
-.skills-list {
+#skills-container {
   display: flex;
-  
+  box-sizing: border-box;
   width: 75%;
   padding: 10px;
   margin-bottom: 30px;
@@ -172,8 +173,11 @@ main {
 }
 .progress-bar {
   height: 2.2rem;
+  width: 0px;
+ 
   background-color: aquamarine;
   border-radius: 20px 0px 0px 20px;
+  transition: width 4s;
   box-shadow: 1px 1px 5px 2px #989882;
 }
 .Skill-Name {
