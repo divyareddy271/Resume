@@ -244,7 +244,7 @@ main {
   border: 1px solid;
   margin-top: -420px;
 }
-#Work-experience{
+#experience{
     height: auto;
     width: 100%;
     margin-right: 0%;
@@ -252,7 +252,7 @@ main {
     background-color: #e9e9cb !important;
     color: black;
 }
-#Work-experience:nth-child(even){
+#experience:nth-child(even){
    
     background-color: aqua;
 }
