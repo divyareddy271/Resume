@@ -20,8 +20,8 @@
 // });
 
 /*             sroll dwn for all           */
-var navmenuanchortag = document.querySelectorAll(".nav-menu a");
-// console.log(nav);
+var navmenuanchortag = document.querySelectorAll(".list a");
+console.log(navmenuanchortag);
 for (let i = 0; i < navmenuanchortag.length; i++) {
     navmenuanchortag[i].addEventListener("click", function (event) {
     event.preventDefault();

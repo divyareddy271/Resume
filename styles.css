@@ -1,7 +1,3 @@
-
-
-
-
 body {
   background-color: black;
   margin: 0px;
@@ -32,10 +28,12 @@ body {
   display: inline-block;
   margin: 0px 8px 8px 0px;
   font-weight: 100;
+
   font-size: 0.9rem;
 }
 .horizontal-list {
   list-style: none;
+ 
   padding-left: 0px;
   margin: 0px;
 }
@@ -76,6 +74,62 @@ body {
 .social-icons li a i:hover {
   box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
 }
+
+/*dropdown */
+.bars{
+  color: white;
+  margin: 0;
+  margin-right: 5%;
+  display: none;
+}
+
+.bars i {
+  font-size: 2rem;
+}
+.bars:hover #social-details{
+  display: none !important;
+  background-color: #403066;
+}
+
+.resoponsive-content{
+  margin: 0;
+  display: none;
+  background-color: #828470;
+  box-shadow: 0px 4px 8px 1px #535547;
+}
+
+.resoponsive:hover 
+.resoponsive-content{
+  display: block;
+  position: absolute;
+  right: 3%;
+}
+
+.text-right{
+  text-align: right;
+}
+ .resoponsive-content ul{
+  margin: 0.2rem 0.2rem;
+  text-align: left;
+  padding: 0px 0.8rem;
+}
+.resoponsive-content li{
+
+  margin: 0.4rem 0px;
+}
+
+.resoponsive-content li a {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 15px;
+  color: black;
+} 
+
+.no-list-style li{
+ 
+  list-style: none;
+} 
+
 /* Section */
 section {
   transition: width 4s;
@@ -112,13 +166,16 @@ section:target{
   height: auto;
   width: 100%;
   position: relative;
-  margin-bottom: 30px;
+  
+  background-image: linear-gradient(white 12%,rgb(73, 146, 158));
+  
 }
+
 #my-img {
   height: 12rem;
   width: 12rem;
   margin: auto;
-  margin-top: -17vh;
+  margin-top: -15vh;
 }
 #my-img img {
   height: 100%;
@@ -137,14 +194,16 @@ main {
   font-size: 1.1rem;
   text-align: justify;
   width: 80%;
-  color: gray;
+  color: rgb(5, 0, 0);
   line-height: 28px;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 /* skills */
 #skills{
   height: auto;
+  background-image: linear-gradient(white,gray);
 }
 #skills-container {
   display: flex;
@@ -218,22 +277,22 @@ main {
   width: 100%;
 }
 .clr-yellow {
-  background-color: rgb(196, 182, 30);
+  background-image:linear-gradient( white,rgb(196, 182, 30));
 }
 .clr-blue {
-  background-color: blue;
+  background-image:linear-gradient( white, blue 50%);
 }
 .clr-cyan {
-  background-color: cyan;
+  background-image:linear-gradient( white, rgb(115, 255, 0));
 }
 .clr-green {
-  background-color: rgb(53, 237, 7);
+  background-image:linear-gradient( white,rgb(53, 237, 7));
 }
 .clr-pink {
   background-color: pink;
 }
 .clr-purple {
-  background-color: purple;
+  background-image:linear-gradient( white,purple 50%);
 }
 .clr-orange {
   background-color: orange;
@@ -244,17 +303,25 @@ main {
   border: 1px solid;
   margin-top: -420px;
 }
+
+/* work experience and education */
 #experience{
     height: auto;
     width: 100%;
     margin-right: 0%;
     position: relative;
+    background-image: linear-gradient(-120deg,rgb(167, 167, 176),rgb(248, 251, 245));
     background-color: #e9e9cb !important;
     color: black;
 }
-#experience:nth-child(even){
-   
-    background-color: aqua;
+#education{
+  height: auto;
+  width: 100%;
+  margin-right: 0%;
+  position: relative;
+  background-image: linear-gradient(-120deg,rgb(234, 218, 227),rgb(176, 217, 219));
+  background-color: #e9e9cb !important;
+  color: black;
 }
 
 .timeline{
@@ -277,7 +344,7 @@ main {
 }
 .timeline-box:nth-child(even)::before{
   content: "";
-  background-color: rgb(138, 133, 133);
+  background-color: rgb(199, 33, 33);
   border-radius: 50%;
   height: 0.5rem;
   width: 0.5rem;
@@ -289,10 +356,10 @@ main {
 }
 .timeline-box:nth-child(odd)::after{
   content:'';
-  color: #403066;
+  color: #6237c4;
 	position:absolute;
     top:30%;
-	right:-12.3%;
+	right:-11.0%;
 	width:0.5rem;
 	height:0.5rem;
 	z-index:1;
@@ -314,13 +381,23 @@ main {
 	z-index: 2;
 	transform:rotate(90deg);
   margin-left: -25px;
-
-  
 	
 }
 #timeline-traveller i{
 	margin-top:-20px;
- 
+  
+}
+#education-taveller {
+  position: sticky;
+	top:29%;
+	z-index: 2;
+	transform:rotate(90deg);
+  margin-left: -15px;
+
+}
+#education-taveller i{
+	margin-top:-20px;
+  color: #075b02;
 }
 .job-company-profile{
  display: flex;
@@ -414,8 +491,39 @@ main {
   height: 700px;
   
 }
-@media screen and (max-width:600px)
-{ 
+
+@media screen and (max-width:860px){
+  #my-img {
+ 
+    margin-top: -10vh;
+  }
+  .timeline-box:nth-child(even)::before{
+    left:-11.2%;
+    background-color: #bb16e0;
+  }
+  .timeline-box:nth-child(odd)::after{
+    right:-12.2%;
+    background-color: #b92fd8;
+    opacity: 05;
+  }
+}
+
+
+
+@media screen and (max-width:630px){
+  .bars{
+    display: block;
+  }
+  .nav-menu li {
+    display: none;
+  }
+
+  
+  #my-name{
+    font-weight: 600;
+    padding-top: 70px;
+    font-size: 25px ;
+  }
 .timeline-box{
   left:12% !important;
   width:90% ;
@@ -428,7 +536,7 @@ main {
 
 .timeline-box::before{
   content: "";
-  background-color: rgb(113, 111, 111);
+  background-color: rgb(220, 24, 151);
   border-radius: 50%;
   height: 0.5rem;
   width: 0.5rem;
@@ -440,6 +548,7 @@ main {
 }
 .timeline-box::after{
   left:-12.%;
+  background-color: #6237c4 !important;
   
 }
 }
