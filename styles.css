@@ -170,6 +170,11 @@ section:target{
   background-image: linear-gradient(white 12%,rgb(73, 146, 158));
   
 }
+.text-highlight{
+  /* text-decoration: underline; */
+  font-weight: 600;
+  color: #1c08f6;
+}
 
 #my-img {
   height: 12rem;
@@ -484,13 +489,106 @@ main {
 #portfolio{
   background-color: white;
 }
+/*contact*/
 #contact{
   /* background-image: linear-gradient(to bottom left,rgb(8, 8, 235) 80%, rgb(163, 70, 163) ); */
   background-image:linear-gradient(to bottom left ,#403066,#2857a4);
-  color:white;
-  height: 700px;
+  
+  display: flex;
+  flex-direction: column;
+
+}
+#heading-contact{
+  color:white !important;
+}
+/* #contact > div { 
+  width:50%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border:1px solid black;
+} */
+.contact-container {
+  display: flex;
+  margin: 10px !important;
+  
+  flex-direction: row;
+  width: 99%;
+ 
+}
+.contact-form-container{
+  width: 50%;
+ 
+
+}
+.contact-form{
+  margin-left: 20%;
+  display: block;
+
+}
+.contact-form input,textarea{
+  
+  border:0px solid transparent;
+  max-width:90%;
+  width: 90%;
+  padding:4px 10px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background-color: transparent;
+ 
+  margin: 15px;
+  display: block;
+  border-bottom: 2px solid white;
+}
+.contact-form button {
+  padding: 0.8em 0.8em 0.78em;
+  line-height: 1;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 5%;
+  font-family: sans-serif;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left:25%;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
   
 }
+.contact-details-container{
+  width: 35%;
+  margin-left:6% ;
+ 
+}
+input:focus{
+  outline: none;
+}
+#my-details-container p{
+  color: #d9dcdd;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+#my-details-container h3 {
+  color: white;
+  font-weight: 550;
+  font-size: 1.2rem;
+}
+.my-details-info-container{
+  display: block;
+  margin-bottom: 20px;
+    color: #d9dcdd;
+    font-size: 1rem;
+}
+.my-details-info-container i,span {
+  margin: 3px;
+  display: inline-block;
+}
+.my-details-info-container span {
+margin-left: 0.4rem;
+}
+/* responsive */
 
 @media screen and (max-width:860px){
   #my-img {
@@ -507,7 +605,25 @@ main {
     opacity: 05;
   }
 }
-
+@media screen and (max-width:768px){
+  
+.contact-container {
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form{
+  margin-left: 5%;
+}
+.contact-form-container{
+  width: 100%;
+ 
+}
+.contact-details-container{
+  width:90%;
+ 
+  align-items: center;
+}
+}
 
 
 @media screen and (max-width:630px){
