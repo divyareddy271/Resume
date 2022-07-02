@@ -50,75 +50,69 @@ for (let i = 0; i < navmenuanchortag.length; i++) {
 /*               skills auto fill           */
 
 var progressbar = document.querySelectorAll(".skills-bar > div"); //to select all progress bar divs
-var skillscordinates = document
-  .getElementById("skills")
-  .getBoundingClientRect(); // to get skills container co-ordinate values
+var skillscordinates = document.getElementById("skills").getBoundingClientRect(); // to get skills container co-ordinate values
 window.addEventListener("scroll", function (event) {
   checkscroll();
-  // timlinebox();
-
 });
 var animationDone = false; //to check animation
-
+let skills_bar = document.querySelectorAll(".skills-bar > .progress-bar")
 // function to make div=0
 function initializeskills(bar) {
-  console.log(bar);
+  bar.setAttribute("data-visited", "false");
+ 
   bar.style.width = "0%";
 }
-
-checkscroll();// function call
+for (bar of skills_bar) {
+  
+  let skill_bar_cordinates = bar.getBoundingClientRect();
+  
+  if (bar.getAttribute("data-visited") == "false" && skill_bar_cordinates.top <
+   (window.innerHeight - skill_bar_cordinates.height)) {
+    bar.setAttribute("data-visited", true);
+    fillbars(bar);
+  } else if (skill_bar_cordinates.top > window.innerHeight || skill_bar_cordinates <= 1) {
+    bar.setAttribute("data-visited", false);
+    
+    initializeskills(bar);
+  }
+}
 
 // fillbar
 function fillbars(bar) {
-  // animationDone = true;
-  // for (let bar of progressbar) {
-    //!animationDone &&
-    let targetvalue = bar.dataset.value; // bar.attributes('data-value');
-    let currentwidth = 0;
-    let setskillsinterval = setInterval(function () {
-      // console.log("called");
-      if (currentwidth < targetvalue) {
-        bar.style.width = currentwidth++ + "%";
-      } else {
-        clearInterval(setskillsinterval);
-        return;
-      }
-    }, 10);
-  // }
+
+  let targetvalue = bar.dataset.value;
+  let currentwidth = 0;
+  let setskillsinterval = setInterval(function () {
+    if (currentwidth < targetvalue) {
+      bar.style.width = currentwidth++ + "%";
+      bar.setAttribute("data-visited", "true");
+    } else {
+      clearInterval(setskillsinterval);
+      return;
+    }
+  }, 10);
 }
+
 //check if skills bar is visible or not
 
 function checkscroll() {
-  let skills_bar =  document.querySelectorAll(".skills-bar > .progress-bar")
-  let  animationDone = false;
- // console.log(skills_bar,"   ssss  ");
-let i=0;
-  for(bar of skills_bar){
-    let skill_bar_cordinates = bar.getBoundingClientRect();
-    let compStyles = window.getComputedStyle(bar);
-    let marginslkillsandpadding = compStyles.getPropertyValue("padding"); //o/p 30px10px
-  
-    //converting30px10px to int value
-    let marginbottom = parseInt(compStyles.getPropertyValue("margin-bottom"));
-    let padding = parseInt(compStyles.getPropertyValue("padding"));
-    if (skill_bar_cordinates.top >=1 && skill_bar_cordinates.top< window.innerHeight 
-    ) {
-     // console.log(skill_bar_cordinates.top,"   ", window.innerHeight ,bar.textContent);
-      // for(let bar of progressbar){
-      // }
-      animationDone = true;
 
-     // console.log("skills section is visible",i++);
-     fillbars(bar);
-    } else if (skill_bar_cordinates.top > window.innerHeight ||skill_bar_cordinates<=1 ) {
-      animationDone = false;
+  let i = 0;
+  for (bar of skills_bar) {
+    let skill_bar_cordinates = bar.getBoundingClientRect();
+    if (bar.getAttribute("data-visited") == "false" &&  skill_bar_cordinates.top >=1 && skill_bar_cordinates.top < (window.innerHeight - skill_bar_cordinates.height))
+     {
+      bar.setAttribute("data-visited", true);
+      fillbars(bar);
+    } else if (bar.getAttribute("data-visited") == "true"&& skill_bar_cordinates.top > window.innerHeight || skill_bar_cordinates.top <= 1) {
+      bar.setAttribute("data-visited", false);
+     
       initializeskills(bar);
-      console.log(i++);
     }
   }
-   
-   
-  }
+
+
+}
 
 
 // // function to make div=0
@@ -213,18 +207,18 @@ function timedividerheight() {
   //To caluculate height
   timedivider[0].style.height = (job_profile_last_child_cordinates.top - job_profile_first_child_cordinates.top);
   timedivider[1].style.height = (edu_profile_last_child_cordinates.top - edu_profile_first_child_cordinates.top);
-  timedivider[0].style.top = ( job_profile_first_child_cordinates.top - timelinebox_cordinates.top);
+  timedivider[0].style.top = (job_profile_first_child_cordinates.top - timelinebox_cordinates.top);
   timedivider[1].style.top = (edu_profile_first_child_cordinates.top - timelinebox_education_cordinates.top);
-  
+
 
 }
 window.addEventListener('resize', function (event) {
   timlinebox();
   timedividerheight();
 }, true);
-var j=0;
+var j = 0;
 function timlinebox() {
-  for (let i = 0;( i < experienceprofile.length && i< educationprofile.length); i++) {
+  for (let i = 0; (i < experienceprofile.length && i < educationprofile.length); i++) {
     let job_profile_cordinates = experienceprofile[i].getBoundingClientRect();
     let edu_profile_cordinates = educationprofile[i].getBoundingClientRect();
     let timelinebox_cordinates = timelinebox[i].getBoundingClientRect();
@@ -232,37 +226,37 @@ function timlinebox() {
     if (i % 2 == 0) {
       // console.log("jkkkk", timelinebox_cordinates.top, job_profile_cordinates.top - timelinebox_cordinates.top);
       timelinebox[i].style.setProperty('--aftertop', job_profile_cordinates.top - timelinebox_cordinates.top);
-      timelinebox[i].style.setProperty('--aftercolor',"black");
+      timelinebox[i].style.setProperty('--aftercolor', "black");
       timelinebox_education[i].style.setProperty('--aftertop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
-      timelinebox_education[i].style.setProperty('--aftercolor',"black");
-    
+      timelinebox_education[i].style.setProperty('--aftercolor', "black");
+
     }
     else {
       timelinebox[i].style.setProperty('--beforetop', job_profile_cordinates.top - timelinebox_cordinates.top);
       timelinebox_education[i].style.setProperty('--beforetop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
-     
+
     }
     j++;
   }
-  
-  if(j<educationprofile.length){
-    for (let i = j;(  i< educationprofile.length); i++) {
+
+  if (j < educationprofile.length) {
+    for (let i = j; (i < educationprofile.length); i++) {
       let edu_profile_cordinates = educationprofile[i].getBoundingClientRect();
       let timelinebox_education_cordinates = timelinebox_education[i].getBoundingClientRect();
       if (i % 2 == 0) {
         timelinebox_education[i].style.setProperty('--aftertop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
-        timelinebox_education[i].style.setProperty('--aftercolor',"black");
+        timelinebox_education[i].style.setProperty('--aftercolor', "black");
       }
       else {
         timelinebox_education[i].style.setProperty('--beforetop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
       }
     }
   }
-  
+
 }
 
 timlinebox();
-  timedividerheight();
+timedividerheight();
 
 
 
