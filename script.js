@@ -245,7 +245,7 @@ function timlinebox() {
       let timelinebox_education_cordinates = timelinebox_education[i].getBoundingClientRect();
       if (i % 2 == 0) {
         timelinebox_education[i].style.setProperty('--aftertop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
-        timelinebox_education[i].style.setProperty('--aftercolor', "black");
+       
       }
       else {
         timelinebox_education[i].style.setProperty('--beforetop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);

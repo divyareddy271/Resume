@@ -228,18 +228,19 @@ main {
   box-sizing: border-box;
   margin: 25px;
   overflow: hidden;
+  border: 0.5px solid #acabb5;
   border-radius: 100px;
 }
 .Skill-Name {
   font-size: 15px;
-  color: black;
+  color: rgb(14, 9, 9);
   margin-left: 1px;
 }
 .progress-bar {
   height: 2.2rem;
   width: 0px;
  
-  background-color: aquamarine;
+  background-color: rgb(207, 37, 7);
   border-radius: 20px 0px 0px 20px;
   transition: width 4s;
   box-shadow: 1px 1px 5px 2px #989882;
@@ -282,25 +283,32 @@ main {
   width: 100%;
 }
 .clr-yellow {
-  background-image:linear-gradient( white,rgb(196, 182, 30));
+  background-image:linear-gradient( white,rgb(84, 4, 61));
 }
 .clr-blue {
   background-image:linear-gradient( white, blue 50%);
 }
 .clr-cyan {
-  background-image:linear-gradient( white, rgb(115, 255, 0));
+  background-image:linear-gradient( white, rgb(198, 93, 13));
 }
 .clr-green {
-  background-image:linear-gradient( white,rgb(53, 237, 7));
+  background-image:linear-gradient( white,rgb(34, 126, 11));
 }
 .clr-pink {
-  background-color: pink;
+  background-color: rgb(163, 24, 47);
 }
 .clr-purple {
   background-image:linear-gradient( white,purple 50%);
 }
 .clr-orange {
   background-color: orange;
+}
+.clr-peach{
+  background-color: rgb(121, 125, 4);
+  
+}
+.clr-diff {
+  background-color: #403066;
 }
 .hr {
   height:inherit !important;
@@ -349,7 +357,7 @@ main {
 }
 .timeline-box:nth-child(even)::before{
   content: "";
-  background-color: rgb(199, 33, 33);
+  background-color: rgb(8, 1, 1);
   border-radius: 50%;
   height: 0.5rem;
   width: 0.5rem;
@@ -369,7 +377,7 @@ main {
 	height:0.5rem;
 	z-index:1;
 	border-radius:50%;
-	background-color:var(--aftercolor,rgb(32, 210, 23));
+	background-color:var(--aftercolor,rgb(1, 6, 0));
 }
 .timeline-divider{
   height: 80%;
@@ -598,7 +606,7 @@ margin-left: 0.4rem;
   }
   .timeline-box:nth-child(even)::before{
     left:-11.2%;
-    background-color: #bb16e0;
+    
   }
   .timeline-box:nth-child(odd)::after{
     right:-12.2%;
@@ -656,19 +664,15 @@ margin-left: 0.4rem;
 }
 
 .timeline-box::before{
-  content: "";
-  background-color: (--aftercolor,red);
-  border-radius: 50%;
-  height: 0.5rem;
-  width: 0.5rem;
-  position: absolute;
-  left:-8.3% !important;
+  
+  left:-8.8% !important;
 
   z-index: 1;
   
 }
 .timeline-box::after{
-  left:-7.0%;
+  left:-8.8%;
+  background-color: black;
   
   
 }
