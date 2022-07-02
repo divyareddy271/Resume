@@ -61,32 +61,22 @@ window.addEventListener("scroll", function (event) {
 var animationDone = false; //to check animation
 
 // function to make div=0
-function initializeskills() {
-  skillscordinates = document.getElementById("skills").getBoundingClientRect();
-  console.log(skillscordinates.height - skillscordinates.top);
-  if (
-    skillscordinates.height - skillscordinates.y >= -300 &&
-    skillscordinates.height - skillscordinates.y <= 300
-  ) {
-    fillbars();
-  } else {
-    for (let bar of progressbar) {
-      // choose all elements
-      bar.style.width = "0%";
-    }
-  }
+function initializeskills(bar) {
+  console.log(bar);
+  bar.style.width = "0%";
 }
-initializeskills(); // function call
+
+checkscroll();// function call
 
 // fillbar
-function fillbars() {
-  animationDone = true;
-  for (let bar of progressbar) {
+function fillbars(bar) {
+  // animationDone = true;
+  // for (let bar of progressbar) {
     //!animationDone &&
     let targetvalue = bar.dataset.value; // bar.attributes('data-value');
     let currentwidth = 0;
     let setskillsinterval = setInterval(function () {
-      console.log("called");
+      // console.log("called");
       if (currentwidth < targetvalue) {
         bar.style.width = currentwidth++ + "%";
       } else {
@@ -94,41 +84,118 @@ function fillbars() {
         return;
       }
     }, 10);
-  }
+  // }
 }
+//check if skills bar is visible or not
 
-//check scroll if skills section is visible or not
 function checkscroll() {
-  skillscontainer = document.getElementById("skills-container");
-  skillscordinates = document
-    .getElementById("skills-container")
-    .getBoundingClientRect();
-  //  console.log(skillscordinates.top,"     ", window.innerHeight+10)
-  //to get margin and padding values already defined
-  let compStyles = window.getComputedStyle(skillscontainer);
-  let marginslkillsandpadding = compStyles.getPropertyValue("padding"); //o/p 30px10px
+  let skills_bar =  document.querySelectorAll(".skills-bar > .progress-bar")
+  let  animationDone = false;
+ // console.log(skills_bar,"   ssss  ");
+let i=0;
+  for(bar of skills_bar){
+    let skill_bar_cordinates = bar.getBoundingClientRect();
+    let compStyles = window.getComputedStyle(bar);
+    let marginslkillsandpadding = compStyles.getPropertyValue("padding"); //o/p 30px10px
+  
+    //converting30px10px to int value
+    let marginbottom = parseInt(compStyles.getPropertyValue("margin-bottom"));
+    let padding = parseInt(compStyles.getPropertyValue("padding"));
+    if (skill_bar_cordinates.top >=1 && skill_bar_cordinates.top< window.innerHeight 
+    ) {
+     // console.log(skill_bar_cordinates.top,"   ", window.innerHeight ,bar.textContent);
+      // for(let bar of progressbar){
+      // }
+      animationDone = true;
 
-  //converting30px10px to int value
-  marginbottom = parseInt(compStyles.getPropertyValue("margin-bottom"));
-  let padding = parseInt(compStyles.getPropertyValue("padding"));
-  // console.log(marginbottom);
-
-  if (
-    !animationDone &&
-    skillscordinates.top >=
-    -(skillscordinates.height - (marginbottom + padding)) &&
-    skillscordinates.top <= window.innerHeight - padding
-  ) {
-    // for(let bar of progressbar){
-    // }
-    animationDone = true;
-    console.log("skills section is visible");
-    fillbars();
-  } else if (skillscordinates.top > window.innerHeight) {
-    // animationDone = false;
-    // initializeskills();
+     // console.log("skills section is visible",i++);
+     fillbars(bar);
+    } else if (skill_bar_cordinates.top > window.innerHeight ||skill_bar_cordinates<=1 ) {
+      animationDone = false;
+      initializeskills(bar);
+      console.log(i++);
+    }
   }
-}
+   
+   
+  }
+
+
+// // function to make div=0
+// function initializeskills() {
+//   skillscordinates = document.getElementById("skills").getBoundingClientRect();
+//   console.log(skillscordinates.height - skillscordinates.top);
+//   if (
+//     skillscordinates.height - skillscordinates.y >= -300 &&
+//     skillscordinates.height - skillscordinates.y <= 300
+//   ) {
+//   //  fillbars();
+//   } else {
+//     for (let bar of progressbar) {
+//       // choose all elements
+//       bar.style.width = "0%";
+//     }
+//   }
+// }
+// initializeskills(); // function call
+
+// // fillbar
+// function fillbars() {
+//   // animationDone = true;
+//   // for (let bar of progressbar) {
+//     
+//     let targetvalue = bar.dataset.value; // bar.attributes('data-value');
+//     let currentwidth = 0;
+//     let setskillsinterval = setInterval(function () {
+//       // console.log("called");
+//       if (currentwidth < targetvalue) {
+//         bar.style.width = currentwidth++ + "%";
+//       } else {
+//         clearInterval(setskillsinterval);
+//         return;
+//       }
+//     }, 10);
+//   // }
+// }
+
+
+
+
+
+
+
+// //check scroll if skills section is visible or not
+// function checkscroll() {
+//   skillscontainer = document.getElementById("skills-container");
+//   skillscordinates = document
+//     .getElementById("skills-container")
+//     .getBoundingClientRect();
+//   //  console.log(skillscordinates.top,"     ", window.innerHeight+10)
+//   //to get margin and padding values already defined
+//   let compStyles = window.getComputedStyle(skillscontainer);
+//   let marginslkillsandpadding = compStyles.getPropertyValue("padding"); //o/p 30px10px
+
+//   //converting30px10px to int value
+//   marginbottom = parseInt(compStyles.getPropertyValue("margin-bottom"));
+//   let padding = parseInt(compStyles.getPropertyValue("padding"));
+//   // console.log(marginbottom);
+
+//   if (
+//     !animationDone &&
+//     skillscordinates.top >=
+//     -(skillscordinates.height - (marginbottom + padding)) &&
+//     skillscordinates.top <= window.innerHeight - padding
+//   ) {
+//     // for(let bar of progressbar){
+//     // }
+//     animationDone = true;
+//     console.log("skills section is visible");
+//     fillbars();
+//   } else if (skillscordinates.top > window.innerHeight) {
+//     // animationDone = false;
+//     // initializeskills();
+//   }
+// }
 
 var timedivider = document.getElementsByClassName("timeline-divider");
 var experienceprofile = document.querySelectorAll('#experience .job-company-profile-company');
