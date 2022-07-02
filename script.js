@@ -23,7 +23,7 @@
 var navmenuanchortag = document.querySelectorAll(".list a");
 console.log(navmenuanchortag);
 for (let i = 0; i < navmenuanchortag.length; i++) {
-    navmenuanchortag[i].addEventListener("click", function (event) {
+  navmenuanchortag[i].addEventListener("click", function (event) {
     event.preventDefault();
     let targetvalueid = this.textContent.trim().toLowerCase();
     let targetsection = document.getElementById(targetvalueid);
@@ -34,10 +34,10 @@ for (let i = 0; i < navmenuanchortag.length; i++) {
     let setintervals = setInterval(function () {
       //refer function or write complete code
       //scrolltoparticularsection(targetcoordinates);
-     // console.log(exp)
-      var targetsectioncoordinates =  targetsection.getBoundingClientRect();
+      // console.log(exp)
+      var targetsectioncoordinates = targetsection.getBoundingClientRect();
       //targetsection.getBoundingClientRect();
-      console.log(targetsectioncoordinates.y,"  ",top);
+      console.log(targetsectioncoordinates.y, "  ", top);
       if (targetsectioncoordinates.top <= 0) {
         clearInterval(setintervals);
         return;
@@ -53,7 +53,11 @@ var progressbar = document.querySelectorAll(".skills-bar > div"); //to select al
 var skillscordinates = document
   .getElementById("skills")
   .getBoundingClientRect(); // to get skills container co-ordinate values
-window.addEventListener("scroll", checkscroll);
+window.addEventListener("scroll", function (event) {
+  checkscroll();
+  // timlinebox();
+
+});
 var animationDone = false; //to check animation
 
 // function to make div=0
@@ -112,7 +116,7 @@ function checkscroll() {
   if (
     !animationDone &&
     skillscordinates.top >=
-      -(skillscordinates.height - (marginbottom + padding)) &&
+    -(skillscordinates.height - (marginbottom + padding)) &&
     skillscordinates.top <= window.innerHeight - padding
   ) {
     // for(let bar of progressbar){
@@ -125,3 +129,87 @@ function checkscroll() {
     // initializeskills();
   }
 }
+
+var timedivider = document.getElementsByClassName("timeline-divider");
+var experienceprofile = document.querySelectorAll('#experience .job-company-profile-company');
+var educationprofile = document.querySelectorAll('#education .job-company-profile-company')
+var timelinebox = document.querySelectorAll('#experience .timeline-box');
+var timelinebox_education = document.querySelectorAll('#education .timeline-box');
+// console.log(experienceprofile[0],experienceprofile.length);
+function timedividerheight() {
+  job_profile_first_child_cordinates = experienceprofile[0].getBoundingClientRect();
+  job_profile_last_child_cordinates = experienceprofile[experienceprofile.length - 1].getBoundingClientRect();
+  edu_profile_first_child_cordinates = educationprofile[0].getBoundingClientRect();
+  edu_profile_last_child_cordinates = educationprofile[educationprofile.length - 1].getBoundingClientRect();
+  let timelinebox_cordinates = timelinebox[0].getBoundingClientRect();
+  let timelinebox_education_cordinates = timelinebox_education[0].getBoundingClientRect();
+  //To caluculate height
+  timedivider[0].style.height = (job_profile_last_child_cordinates.top - job_profile_first_child_cordinates.top);
+  timedivider[1].style.height = (edu_profile_last_child_cordinates.top - edu_profile_first_child_cordinates.top);
+  timedivider[0].style.top = ( job_profile_first_child_cordinates.top - timelinebox_cordinates.top);
+  timedivider[1].style.top = (edu_profile_first_child_cordinates.top - timelinebox_education_cordinates.top);
+  
+
+}
+window.addEventListener('resize', function (event) {
+  timlinebox();
+  timedividerheight();
+}, true);
+var j=0;
+function timlinebox() {
+  for (let i = 0;( i < experienceprofile.length && i< educationprofile.length); i++) {
+    let job_profile_cordinates = experienceprofile[i].getBoundingClientRect();
+    let edu_profile_cordinates = educationprofile[i].getBoundingClientRect();
+    let timelinebox_cordinates = timelinebox[i].getBoundingClientRect();
+    let timelinebox_education_cordinates = timelinebox_education[i].getBoundingClientRect();
+    if (i % 2 == 0) {
+      // console.log("jkkkk", timelinebox_cordinates.top, job_profile_cordinates.top - timelinebox_cordinates.top);
+      timelinebox[i].style.setProperty('--aftertop', job_profile_cordinates.top - timelinebox_cordinates.top);
+      timelinebox[i].style.setProperty('--aftercolor',"black");
+      timelinebox_education[i].style.setProperty('--aftertop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
+      timelinebox_education[i].style.setProperty('--aftercolor',"black");
+    
+    }
+    else {
+      timelinebox[i].style.setProperty('--beforetop', job_profile_cordinates.top - timelinebox_cordinates.top);
+      timelinebox_education[i].style.setProperty('--beforetop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
+     
+    }
+    j++;
+  }
+  
+  if(j<educationprofile.length){
+    for (let i = j;(  i< educationprofile.length); i++) {
+      let edu_profile_cordinates = educationprofile[i].getBoundingClientRect();
+      let timelinebox_education_cordinates = timelinebox_education[i].getBoundingClientRect();
+      if (i % 2 == 0) {
+        timelinebox_education[i].style.setProperty('--aftertop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
+        timelinebox_education[i].style.setProperty('--aftercolor',"black");
+      }
+      else {
+        timelinebox_education[i].style.setProperty('--beforetop', edu_profile_cordinates.top - timelinebox_education_cordinates.top);
+      }
+    }
+  }
+  
+}
+
+timlinebox();
+  timedividerheight();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

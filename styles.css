@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+
   margin: 0px;
   font-family: sans-serif;
   font-size: 30px;
@@ -17,7 +17,7 @@ body {
     background-position: center;
     background-attachment:fixed */
   height: 65vh;
-  opacity: 0.8;
+  opacity: 0.9.;
   background-image: url("Img/lappy.webp");
   background-size: cover;
   background-position: center;
@@ -355,27 +355,27 @@ main {
   width: 0.5rem;
   position: absolute;
   left:-10.5%;
-  top:20%;
+  top:var(--beforetop,20%);
   z-index: 1;
   
 }
 .timeline-box:nth-child(odd)::after{
   content:'';
-  color: #6237c4;
+  color: #da480a;
 	position:absolute;
-    top:30%;
-	right:-11.0%;
+  top:var(--aftertop,30%);
+	right:-11.3%;
 	width:0.5rem;
 	height:0.5rem;
 	z-index:1;
 	border-radius:50%;
-	background-color:rgb(138, 133, 133);
+	background-color:var(--aftercolor,rgb(32, 210, 23));
 }
 .timeline-divider{
   height: 80%;
   position: absolute;
   left:49%;
-  top:6%;
+  top:4%;
 	width:0%;
 	padding:0px;
   border-left: 3px dotted blue;
@@ -414,29 +414,30 @@ main {
 }
 .job-company-profile span{
     text-align: right;
-    margin: 0px;
- 
     font-size: 20px;
 }
 .job-company-profile-role{
     font-weight: 600;
     color: orangered;
+    margin-bottom: 2px;
 }
 .job-company-profile-company{
     font-weight: 400;
-    color: rgb(177, 91, 16);
-    line-height: 3rem;
+    color: rgb(177, 91, 16) ;
+    margin-bottom:8px;
 }
 .job-company-profile-joining {
     font-size: 13px ! important;
     font-weight: 400;
-    margin-bottom: 10px;
-    color: rgb(98, 111, 111);
+    margin-bottom: 08px;
+    color: rgb(80, 6, 59);
+   
 }
 .job-description {
  margin-top: 10px;
  font-size: 15px;
  padding: 7px;
+ line-height: 1.6;
  text-align: justify;
 }
 
@@ -601,7 +602,7 @@ margin-left: 0.4rem;
   }
   .timeline-box:nth-child(odd)::after{
     right:-12.2%;
-    background-color: #b92fd8;
+ 
     opacity: 05;
   }
 }
@@ -622,6 +623,10 @@ margin-left: 0.4rem;
   width:90%;
  
   align-items: center;
+}
+.contact-form button {
+  margin-left: 5%;
+  background-color: #2857a4;
 }
 }
 
@@ -646,25 +651,43 @@ margin-left: 0.4rem;
   
 }
 .timeline-divider{
-  left:5% ;
-  top:4%;
+  left:5%;
+  
 }
 
 .timeline-box::before{
   content: "";
-  background-color: rgb(220, 24, 151);
+  background-color: (--aftercolor,red);
   border-radius: 50%;
   height: 0.5rem;
   width: 0.5rem;
   position: absolute;
   left:-8.3% !important;
-  top:20%;
+
   z-index: 1;
   
 }
 .timeline-box::after{
-  left:-12.%;
-  background-color: #6237c4 !important;
+  left:-7.0%;
+  
   
 }
+}
+.clr-42483 {
+  color:rgb(4, 24, 83);
+  
+}
+.font-LCM{
+  
+ font-family:"Lucida Console", "Courier New", monospace;
+}
+.clr-2{
+  color: #d0390a;
+}
+.font-sans{
+  font-family: comic sans ms;
+  font-size: large;
+}
+.clr-darkgreen{
+  color: #075b02;
 }
