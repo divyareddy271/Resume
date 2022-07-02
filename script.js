@@ -38,11 +38,12 @@ for (let i = 0; i < navmenuanchortag.length; i++) {
       var targetsectioncoordinates = targetsection.getBoundingClientRect();
       //targetsection.getBoundingClientRect();
       console.log(targetsectioncoordinates.y, "  ", top);
-      if (targetsectioncoordinates.top <= 0) {
+      if (targetsectioncoordinates.top <= 0||((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight)) {
         clearInterval(setintervals);
         return;
       }
-      window.scrollBy(0, 10);
+      console.log(targetsectioncoordinates.top);
+      window.scrollBy(0, 50);
     }, 30);
   });
 }

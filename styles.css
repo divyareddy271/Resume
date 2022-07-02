@@ -485,18 +485,23 @@ main {
     text-align: center;
     padding: 10px;
 }
-.Protfolio-conatiner-elements:hover {
+.Protfolio-conatiner-elements:hover img {
   box-shadow: 0 0 20px #8d9295;
+  opacity:0.2;
+  
   
 
 }
 
 .Protfolio-conatiner-elements:hover .protfolio-details {
   background-color: #80808078;
-  color: white;
+  color: black;
 }
 #portfolio{
   background-color: white;
+}
+.protfolio-span{
+  font-size: 20px;
 }
 /*contact*/
 #contact{
@@ -674,7 +679,10 @@ margin-left: 0.4rem;
   left:-8.8%;
   background-color: black;
   
-  
+ 
+}
+.protfolio-span{
+  font-size: 15px;
 }
 }
 .clr-42483 {
